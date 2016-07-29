@@ -1,6 +1,7 @@
 import scrapy
 from mangascraper.items import MangaStreamItem
 from scrapy.exceptions import CloseSpider
+
 class MangaStreamSpider(scrapy.Spider):
     name = 'mangastream'
     allowed_domains = ['mangastream.com']

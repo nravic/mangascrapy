@@ -12,4 +12,4 @@ class CustomFilesPipeline(FilesPipeline):
 
     def file_key(self, url):
         file_guid = url.split('/')[-1]
-        return 'downloadx/%s' % (file_guid)
+        return 'downloads/%s' % (file_guid)
