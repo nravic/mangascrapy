@@ -2,16 +2,17 @@
 Downloads and zips manga from a range of hosting sites using python and scrapy. Need to modify `settings.py` file under `mangascraper/settings.py` in order to set the desired download directory.
 
 ## Currently functioning components
-Can currently only run by invoking `scrapy crawl mangastream` in the parent mangascrapy directory. 
-Downloads files to desired folder and renames them to page numbers.
+- Can run by invoking `python3 mangascrapy.py` in parent directory. Need to enter URL (from page 1!) and the manga name and ch. no.
+- Downloads files to desired folder and renames them to page numbers.
+- Auto-zips downloaded images for convenience. 
 
 ## To-do
 TLDR; a lot. 
 
 - More user-friendly interface.
-- Auto-zipping of downloaded images with manga name and chapter number.
 - Sourcing manga name and chapter number from provided url.
 - Support for further manga hosting sites.
+- Support for downloading multiple chapters at once. 
 
 ## Licensing
 Protected under the MIT license. 
