@@ -62,7 +62,7 @@ NEWSPIDER_MODULE = 'mangascraper.spiders'
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'mangascraper.pipelines.CustomFilesPipeline': 300,
+    'mangascraper.pipelines.MyImagesPipeline': 300,
 }
 FILES_STORE = '/home/scire/to-read'
     
