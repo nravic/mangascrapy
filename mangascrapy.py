@@ -19,23 +19,22 @@ spider = MangaStreamSpider
 spider.start_urls = [input_url]
 
 if __name__ == "__main__":
-    #settings = get_project_settings()
-    custom_settings = {
-        "ITEM_PIPELINES": {'mangascraper.pipelines.CustomFilesPipeline': 1},
-        "FILES_STORE": '/home/scire/to-read'}
-    process = CrawlerProcess(custom_settings)
+    settings = get_project_settings()
+    # custom_settings = {
+    #     "FILES_STORE": '/home/scire/to-read'} #overwrite with desired download path 
+    process = CrawlerProcess(settings) #change to custom_settings if download path changed. Otherwise change in mangascraper/settings.py
     process.crawl(MangaStreamSpider)
     process.start() 
 
 
 
-    
+#rename downloaded files to prevent archiving images in incorrect order
 os.chdir('/home/scire/to-read/downloads/')
-renamecomm = """n=0; ls -tr | while read i; do n=$((n+1)); mv -- "$i" "$(printf '%03d' "$n")"_"$i"; done"""
+renamecomm = """n=0; ls -tr | while read i; do n=$((n+1)); mv -- "$i" "$(printf '%02d' "$n")"_"$i"; done"""
 os.system(renamecomm)
 make_archive('/home/scire/to-read/'+manga_info[0]+'_'+manga_info[1], 'zip', root_dir='/home/scire/to-read', base_dir='downloads')
 
 
-#subprocess.Popen(["rm", "-r", "/home/scire/to-read/downloads/"], stdout=subprocess.PIPE)
+subprocess.Popen(["rm", "-r", "/home/scire/to-read/downloads/"], stdout=subprocess.PIPE)
 
 
